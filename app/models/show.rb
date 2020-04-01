@@ -3,6 +3,7 @@ class Show < ActiveRecord::Base
   has_many :actors
   belongs_to :network
   def actors_list
-    self.actors.map{|a| a.full_name}
+    @list = self.actors.map{|a| a.full_name}
+    @list.join(", ")
   end
 end
